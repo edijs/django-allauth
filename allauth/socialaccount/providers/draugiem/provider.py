@@ -6,7 +6,10 @@ from allauth.socialaccount.providers.base import Provider, ProviderAccount
 
 
 class DraugiemAccount(ProviderAccount):
-
+    
+    def get_profile_url(self):
+        return 'https://www.draugiem.lv%s' % self.account.extra_data.get('url')
+    
     def get_avatar_url(self):
         ret = None
         pic_small_url = self.account.extra_data.get('img')
