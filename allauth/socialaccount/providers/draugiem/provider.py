@@ -22,6 +22,10 @@ class DraugiemAccount(ProviderAccount):
             return pic_small_url
         else:
             return ret
+        
+    def get_profile_url(self):
+        url = self.account.extra_data.get('url')
+        return u'https://draugiem.lv%s' % url
 
     def to_str(self):
         default = super(DraugiemAccount, self).to_str()
